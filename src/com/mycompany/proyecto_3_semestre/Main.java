@@ -10,20 +10,17 @@ import java.util.ArrayList;
  *
  * @author USER
  */
-public class Proyecto_3_semestre {
-static ConetionBDD bdd = new ConetionBDD();
-
+public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello World!");
         CConexion cc= new CConexion();
         cc.getConnection();
         cc.encuestaID();
+        cc.respuesta();
         Ingreso_datos_frame frm_principal = new Ingreso_datos_frame();
         frm_principal.setVisible(true);
-        
-  
-        
-        
-        
+
+        datos_anlisis_preguntas datos = new datos_anlisis_preguntas();
+
+        datos.analisis();
     }
 }

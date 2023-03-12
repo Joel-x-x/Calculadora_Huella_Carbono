@@ -4,10 +4,6 @@
  */
 package com.mycompany.proyecto_3_semestre;
 
-
-import static com.mycompany.proyecto_3_semestre.ConetionBDD.myconection;
-import static com.mycompany.proyecto_3_semestre.ConetionBDD.myresultset;
-import static com.mycompany.proyecto_3_semestre.ConetionBDD.mystatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -21,9 +17,7 @@ import javax.swing.JOptionPane;
  * @author USER
  */
 public class CConexion {
-    
-    
-    
+    // Conexión a la base de datos
     static Connection myconection;
 
     // Crear objeto statement
@@ -31,46 +25,43 @@ public class CConexion {
 
     // Sentencia SQL
     static ResultSet myresultset;
-    
-    
-    
 
-   private static String DRIVER ="com.mysql.jdbc.Driver";
-  private static String USUARIO ="root";
-  private static String PASSWORD ="";
-  private static String URL ="jdbc:mysql://localhost:3306/bdd_huella_carbono";
-  
-  static {
-  try {
-  Class.forName(DRIVER);
-  
-  } catch (ClassNotFoundException e ){
-  JOptionPane.showMessageDialog(null, "ERROR EN EL DRIVER: "+e);
-  
-  }
-  }
-  
-  public Connection getConnection(){
-  Connection con = null ;
-          try{
-           con = DriverManager.getConnection(URL,USUARIO,PASSWORD);
-              JOptionPane.showMessageDialog(null, "CONEXION EXITOSA");
-          } catch (SQLException e){
-          JOptionPane.showMessageDialog(null, "Error de conexion "+e);
-          }
-       return con;
-  }
-  
-      public ArrayList<String> encuestaID() {
+    private static String DRIVER = "com.mysql.jdbc.Driver";
+    private static String USUARIO = "root";
+    private static String PASSWORD = "";
+    private static String URL = "jdbc:mysql://localhost:3306/bdd_huella_carbono?useSSL=false";
 
-        ArrayList<String> arrayEncuestaId = new ArrayList<String>();
+    // Conexión del driver
+    static {
+        try {
+            Class.forName(DRIVER);
 
+        } catch (ClassNotFoundException e) {
+            // JOptionPane.showMessageDialog(null, "ERROR EN EL DRIVER: "+e);
+            System.out.println("ERROR EN EL DRIVER: ");
+
+        }
+    }
+
+    public Connection getConnection() {
+        Connection conexion = null;
         try {
             // Conexión a la base de datos
-            myconection = com.mycompany.proyecto_3_semestre.DriverManager.getConnection("jdbc:mysql://localhost:3306/bdd_huella_carbono", "root", "");
-            // Crear objeto statement
-            mystatement = myconection.createStatement();
+            conexion = DriverManager.getConnection(URL, USUARIO, PASSWORD);
+            // JOptionPane.showMessageDialog(null, "CONEXION EXITOSA");
+            // System.out.println("Conexión exitosa");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error de conexion " + e);
+        }
+        return conexion;
+    }
 
+    public ArrayList<String> encuestaID() {
+
+        ArrayList<String> arrayEncuestaId = new ArrayList<String>();
+        try {
+            // Crear objeto statement
+            mystatement = this.getConnection().createStatement();
             // Sentencia SQL
             myresultset = mystatement.executeQuery(
                     "SELECT * FROM encuesta_has_respuesta INNER JOIN respuesta on encuesta_has_respuesta.respuesta_id = respuesta.id");
@@ -82,9 +73,9 @@ public class CConexion {
                 arrayEncuestaId.add(myresultset.getString("encuesta_id"));
             }
 
-            for (int i = 0; i < arrayEncuestaId.size(); i++) {
-                System.out.println(arrayEncuestaId.get(i));
-            }
+//            for (int i = 0; i < arrayEncuestaId.size(); i++) {
+//                System.out.println(arrayEncuestaId.get(i));
+//            }
 
         } catch (Exception e) {
             System.out.println("Opps!, No se puedo conectar a la base de datos");
@@ -95,10 +86,34 @@ public class CConexion {
 
     }
 
- 
-  
- 
-    
-    
-    
+    public ArrayList<String> respuesta() {
+
+        ArrayList<String> arrayRespuesta = new ArrayList<String>();
+
+        try {
+            // Crear objeto statement
+            mystatement = this.getConnection().createStatement();
+
+            // Sentencia SQL
+            myresultset = mystatement.executeQuery(
+                    "SELECT * FROM encuesta_has_respuesta INNER JOIN respuesta on encuesta_has_respuesta.respuesta_id = respuesta.id");
+
+            // Recorrer el resulset
+            while (myresultset.next()) {
+                // System.out.println(myresultset.getString("encuesta_id") + " " +
+                // myresultset.getString("respuesta"));
+                arrayRespuesta.add(myresultset.getString("respuesta"));
+            }
+
+//           for (int i = 0; i < arrayRespuesta.size(); i++) {
+//                System.out.println(arrayRespuesta.get(i));
+//            }
+
+        } catch (Exception e) {
+            System.out.println("Opps!, No se puedo conectar a la base de datos");
+            e.printStackTrace();
+        }
+
+        return arrayRespuesta;
+    }
 }

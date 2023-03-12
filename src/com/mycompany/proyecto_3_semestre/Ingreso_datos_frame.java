@@ -365,8 +365,6 @@ int xMouse,yMouse;
 
     private void btt_graficoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btt_graficoActionPerformed
         // TODO add your handling code here:
-        NewJFrame nf = new NewJFrame();
-        nf.setVisible(true);
     }//GEN-LAST:event_btt_graficoActionPerformed
 
     private void btt_analisisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btt_analisisMouseClicked
