@@ -50,7 +50,9 @@ static String pregunta_10;
 static String pregunta_11;
 static double suma_huella;
     static AnalisisDatos datos_objeto = new AnalisisDatos();
-    // Intanciamos las matrices
+    // Instanciamos la clase analisis datos
+    AnalisisDatos datos = new AnalisisDatos();
+    // Instanciamos las matrices
     JTextField matrizA[][], matrizB[][];
     // Variables dimensiones de las matrices A y B
     int cA = 2, fA = 2, cB = 2, fB = 2;
@@ -255,8 +257,8 @@ static double suma_huella;
 
         String[] aux;
         aux=n.split("x");
-        int n2=0;
-        n2=Integer.parseInt((aux[0]))*Integer.parseInt((aux[1]));
+        int sizeArray=0;
+        sizeArray=Integer.parseInt((aux[0]))*Integer.parseInt((aux[1]));
 
         filas=Integer.parseInt(aux[0]);
         System.out.println(filas);
@@ -269,11 +271,8 @@ static double suma_huella;
         //System.out.println(tabla_valores.length+tabla_valores[0].length);
         v="1";
         
-        double valore=0;
-        for(int i=0;i<n2;i++){
-            
-            valore=valore+1;
-            a=valore;
+        for(int i=0; i < sizeArray;i++){
+            a = datos.analisis().get(i);
             lista.add(Double.parseDouble(String.valueOf(a)));
             lista_total.add(Double.parseDouble(String.valueOf(a)));
             if (op.equals("1")){
