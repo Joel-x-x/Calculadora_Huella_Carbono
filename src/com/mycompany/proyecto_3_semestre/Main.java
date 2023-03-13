@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
-package com.mycompany.proyecto_3_semestre;
+ package com.mycompany.proyecto_3_semestre;
 
 import java.util.ArrayList;
 
@@ -12,15 +12,18 @@ import java.util.ArrayList;
  */
 public class Main {
     public static void main(String[] args) {
-        CConexion cc= new CConexion();
-        cc.getConnection();
-        cc.encuestaID();
-        cc.respuesta();
-        Ingreso_datos_frame frm_principal = new Ingreso_datos_frame();
+        ConexionBDD conexion = new ConexionBDD();
+        conexion.getConnection();
+        conexion.encuestaID();
+        conexion.respuesta();
+        JFrameIngresoDatos frm_principal = new JFrameIngresoDatos();
         frm_principal.setVisible(true);
 
-        datos_anlisis_preguntas datos = new datos_anlisis_preguntas();
+        AnalisisDatos datos = new AnalisisDatos();
 
-        datos.analisis();
+        int size = datos.analisis().size();
+        for (int i = 0; i < size; i++) {
+            System.out.println(datos.analisis().get(i));            
+        }
     }
 }

@@ -49,7 +49,7 @@ static String pregunta_9;
 static String pregunta_10;
 static String pregunta_11;
 static double suma_huella;
-    static datos_anlisis_preguntas datos_objeto = new datos_anlisis_preguntas();
+    static AnalisisDatos datos_objeto = new AnalisisDatos();
     // Intanciamos las matrices
     JTextField matrizA[][], matrizB[][];
     // Variables dimensiones de las matrices A y B
@@ -842,9 +842,6 @@ static double suma_huella;
                     }}
     }//GEN-LAST:event_btt_calcularActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
