@@ -355,15 +355,6 @@ static double suma_huella;
         }
     }
 
-
-
-
-
-    
-
-
-
-
     public static void datos_tabla_contunuas(String [][] ingreso_tabla){
         //Declaración de los nombres o títulos de las tablas
 
@@ -459,6 +450,8 @@ static double suma_huella;
             lista_frecuencias.add(frecuencias_contador);
             frecuencias_contador=0;
         }
+
+        datos();
     }
 
     //Método para la impresión de la matriz
@@ -578,8 +571,9 @@ static double suma_huella;
 
         System.out.println("la amplitud es de "+amplitud_intervalos_valor);
     }
-    public static void datos(){
-        
+    
+    public static ArrayList<Integer> datos() {
+        return lista_frecuencias;
     }
     
 

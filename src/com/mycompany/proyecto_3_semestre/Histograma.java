@@ -6,6 +6,9 @@ package com.mycompany.proyecto_3_semestre;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+
+import javax.swing.JOptionPane;
+
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -91,11 +94,15 @@ public class Histograma extends javax.swing.JFrame {
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         // TODO add your handling code here:
-        int n1 = 2;
-        int n2 = 18;
-        int n3 = 25;
-        int n4 = 18;
-        int n5 = 7;
+        if(Calculadora.datos().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Todavía no existen datos para gráficar, realiza el calculo primero");
+            return;
+        }
+        int n1 = Calculadora.datos().get(0);
+        int n2 = Calculadora.datos().get(1);
+        int n3 = Calculadora.datos().get(2);
+        int n4 = Calculadora.datos().get(3);
+        int n5 = Calculadora.datos().get(4);
         int n6 = 0;
         int n7 = 0;
         int n8 = 0;
