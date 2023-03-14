@@ -352,6 +352,8 @@ int xMouse,yMouse;
 
     private void btt_grafico1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btt_grafico1ActionPerformed
         // TODO add your handling code here:
+        Histograma frm_histograma = new Histograma();
+        frm_histograma.setVisible(true);
     }//GEN-LAST:event_btt_grafico1ActionPerformed
 
     /**

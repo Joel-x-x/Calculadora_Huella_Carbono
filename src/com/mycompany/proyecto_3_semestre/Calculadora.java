@@ -578,6 +578,9 @@ static double suma_huella;
 
         System.out.println("la amplitud es de "+amplitud_intervalos_valor);
     }
+    public static void datos(){
+        
+    }
     
 
     /**
