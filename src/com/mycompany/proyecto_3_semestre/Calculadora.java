@@ -4,6 +4,8 @@
  */
 package com.mycompany.proyecto_3_semestre;
 import java.awt.Color;
+import static java.awt.Color.red;
+import static java.awt.Color.white;
 import java.awt.Font;
 import static java.lang.Math.sqrt;
 import java.util.ArrayList;
@@ -593,10 +595,11 @@ static double suma_huella;
         jpanelma = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
         panelsuperior = new javax.swing.JPanel();
-        btnsalir = new javax.swing.JButton();
-        btnminimizar = new javax.swing.JButton();
         btt_calcular = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        btn_Minimizar = new javax.swing.JButton();
+        btn_Cerrar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         n4.setBackground(new java.awt.Color(102, 102, 102));
         n4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -655,57 +658,8 @@ static double suma_huella;
                 panelsuperiorMousePressed(evt);
             }
         });
-        //panelsuperior.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnsalir.setBackground(new java.awt.Color(102, 102, 102));
-        btnsalir.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        btnsalir.setForeground(new java.awt.Color(204, 204, 204));
-        btnsalir.setText("×");
-        btnsalir.setBorder(null);
-        btnsalir.setBorderPainted(false);
-        btnsalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnsalir.setFocusPainted(false);
-        btnsalir.setPreferredSize(new java.awt.Dimension(15, 22));
-        btnsalir.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnsalirMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnsalirMouseExited(evt);
-            }
-        });
-        btnsalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnsalirActionPerformed(evt);
-            }
-        });
-        //panelsuperior.add(btnsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, 45, -1));
-
-        btnminimizar.setBackground(new java.awt.Color(102, 102, 102));
-        btnminimizar.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        btnminimizar.setForeground(new java.awt.Color(204, 204, 204));
-        btnminimizar.setText("—");
-        btnminimizar.setBorder(null);
-        btnminimizar.setBorderPainted(false);
-        btnminimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnminimizar.setFocusPainted(false);
-        btnminimizar.setPreferredSize(new java.awt.Dimension(15, 22));
-        btnminimizar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnminimizarMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnminimizarMouseExited(evt);
-            }
-        });
-        btnminimizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnminimizarActionPerformed(evt);
-            }
-        });
-        //panelsuperior.add(btnminimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 45, 20));
-
-        btt_calcular.setText("calculat");
+        btt_calcular.setText("CALCULAR");
         btt_calcular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btt_calcularActionPerformed(evt);
@@ -713,6 +667,65 @@ static double suma_huella;
         });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gifs/arbol.gif"))); // NOI18N
+
+        btn_Minimizar.setBackground(new java.awt.Color(255, 255, 255));
+        btn_Minimizar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btn_Minimizar.setForeground(new java.awt.Color(22, 22, 22));
+        btn_Minimizar.setText("—");
+        btn_Minimizar.setBorder(null);
+        btn_Minimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_Minimizar.setDefaultCapable(false);
+        btn_Minimizar.setFocusPainted(false);
+        btn_Minimizar.setFocusable(false);
+        btn_Minimizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_MinimizarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_MinimizarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_MinimizarMouseExited(evt);
+            }
+        });
+        btn_Minimizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_MinimizarActionPerformed(evt);
+            }
+        });
+
+        btn_Cerrar.setBackground(new java.awt.Color(255, 255, 255));
+        btn_Cerrar.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        btn_Cerrar.setForeground(new java.awt.Color(22, 22, 22));
+        btn_Cerrar.setText("X");
+        btn_Cerrar.setBorder(null);
+        btn_Cerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_Cerrar.setDefaultCapable(false);
+        btn_Cerrar.setFocusPainted(false);
+        btn_Cerrar.setFocusable(false);
+        btn_Cerrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_CerrarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_CerrarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_CerrarMouseExited(evt);
+            }
+        });
+        btn_Cerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_CerrarActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("medidas de tendencia ");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -724,31 +737,48 @@ static double suma_huella;
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(1181, 1181, 1181)
                         .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(392, 392, 392)
-                        .addComponent(btt_calcular)))
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(btt_calcular)
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel5Layout.createSequentialGroup()
+                            .addGap(65, 65, 65)
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(btn_Minimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel5Layout.createSequentialGroup()
+                                    .addGap(39, 39, 39)
+                                    .addComponent(btn_Cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(481, 481, 481))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addComponent(panelsuperior, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btt_calcular)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_Minimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_Cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
+                        .addGap(5, 5, 5)
+                        .addComponent(btt_calcular)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(141, 141, 141)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(40, 40, 40)
                 .addComponent(jLabel20)
-                .addGap(594, 594, 594))
+                .addGap(43, 43, 43)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -769,22 +799,6 @@ static double suma_huella;
 
     }//GEN-LAST:event_n4ActionPerformed
 
-    private void btnsalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsalirMouseEntered
-        // TODO add your handling code here:
-        btnsalir.setBackground(new java.awt.Color(240, 0, 0));
-    }//GEN-LAST:event_btnsalirMouseEntered
-
-    private void btnsalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsalirMouseExited
-        // TODO add your handling code here:
-        btnsalir.setBackground(new java.awt.Color(102, 102, 102));
-    }//GEN-LAST:event_btnsalirMouseExited
-
-    private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
-        this.setVisible(false);
-        //System.exit(0);
-        this.dispose();
-    }//GEN-LAST:event_btnsalirActionPerformed
-
     private void panelsuperiorMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelsuperiorMouseDragged
         // TODO add your handling code here:
         this.setLocation(this.getX() + evt.getX() - mouseX, this.getY() + evt.getY() - mouseY);
@@ -795,21 +809,6 @@ static double suma_huella;
         mouseX = evt.getX();
         mouseY = evt.getY();
     }//GEN-LAST:event_panelsuperiorMousePressed
-
-    private void btnminimizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnminimizarMouseEntered
-        // TODO add your handling code here:
-        btnminimizar.setBackground(new java.awt.Color(120, 120, 120));
-    }//GEN-LAST:event_btnminimizarMouseEntered
-
-    private void btnminimizarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnminimizarMouseExited
-        // TODO add your handling code here:
-        btnminimizar.setBackground(new java.awt.Color(102, 102, 102));
-    }//GEN-LAST:event_btnminimizarMouseExited
-
-    private void btnminimizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnminimizarActionPerformed
-        // TODO add your handling code here:
-        this.setExtendedState(1);
-    }//GEN-LAST:event_btnminimizarActionPerformed
 
     private void btt_calcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btt_calcularActionPerformed
         // TODO add your handling code here:
@@ -840,6 +839,50 @@ static double suma_huella;
                         matrizA[i][j].setText(tabla[i][j]);
                     }}
     }//GEN-LAST:event_btt_calcularActionPerformed
+
+    private void btn_MinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_MinimizarMouseClicked
+        // TODO add your handling code here:
+        this.setExtendedState(1);
+    }//GEN-LAST:event_btn_MinimizarMouseClicked
+
+    private void btn_MinimizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_MinimizarMouseEntered
+        // TODO add your handling code here:
+        btn_Minimizar.setBackground(new java.awt.Color(98,98,98));
+    }//GEN-LAST:event_btn_MinimizarMouseEntered
+
+    private void btn_MinimizarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_MinimizarMouseExited
+        // TODO add your handling code here:
+        btn_Minimizar.setBackground(Color.white);
+    }//GEN-LAST:event_btn_MinimizarMouseExited
+
+    private void btn_MinimizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_MinimizarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_MinimizarActionPerformed
+
+    private void btn_CerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CerrarMouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+    }//GEN-LAST:event_btn_CerrarMouseClicked
+
+    private void btn_CerrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CerrarMouseEntered
+        // TODO add your handling code here:
+        btn_Cerrar.setBackground(red);
+    }//GEN-LAST:event_btn_CerrarMouseEntered
+
+    private void btn_CerrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CerrarMouseExited
+        // TODO add your handling code here:
+        btn_Cerrar.setBackground(white);
+    }//GEN-LAST:event_btn_CerrarMouseExited
+
+    private void btn_CerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CerrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_CerrarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        MedidasTendenciaCentral mt = new MedidasTendenciaCentral();
+        mt.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -880,9 +923,10 @@ static double suma_huella;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnminimizar;
-    private javax.swing.JButton btnsalir;
+    private javax.swing.JButton btn_Cerrar;
+    private javax.swing.JButton btn_Minimizar;
     private javax.swing.JButton btt_calcular;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JPanel jPanel2;

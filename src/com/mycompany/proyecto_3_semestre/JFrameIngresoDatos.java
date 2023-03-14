@@ -32,13 +32,12 @@ int xMouse,yMouse;
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btn_Cerrar = new javax.swing.JButton();
-        btn_Minimizar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        btt_grafico = new javax.swing.JButton();
         btt_analisis = new javax.swing.JButton();
         btt_grafico1 = new javax.swing.JButton();
+        btn_Minimizar = new javax.swing.JButton();
+        btn_Cerrar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -47,58 +46,6 @@ int xMouse,yMouse;
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        btn_Cerrar.setBackground(new java.awt.Color(255, 255, 255));
-        btn_Cerrar.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
-        btn_Cerrar.setForeground(new java.awt.Color(22, 22, 22));
-        btn_Cerrar.setText("X");
-        btn_Cerrar.setBorder(null);
-        btn_Cerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_Cerrar.setDefaultCapable(false);
-        btn_Cerrar.setFocusPainted(false);
-        btn_Cerrar.setFocusable(false);
-        btn_Cerrar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_CerrarMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btn_CerrarMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btn_CerrarMouseExited(evt);
-            }
-        });
-        btn_Cerrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_CerrarActionPerformed(evt);
-            }
-        });
-
-        btn_Minimizar.setBackground(new java.awt.Color(255, 255, 255));
-        btn_Minimizar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        btn_Minimizar.setForeground(new java.awt.Color(22, 22, 22));
-        btn_Minimizar.setText("—");
-        btn_Minimizar.setBorder(null);
-        btn_Minimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_Minimizar.setDefaultCapable(false);
-        btn_Minimizar.setFocusPainted(false);
-        btn_Minimizar.setFocusable(false);
-        btn_Minimizar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_MinimizarMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btn_MinimizarMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btn_MinimizarMouseExited(evt);
-            }
-        });
-        btn_Minimizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_MinimizarActionPerformed(evt);
-            }
-        });
 
         jPanel3.setBackground(new java.awt.Color(51, 51, 51));
         jPanel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -125,36 +72,6 @@ int xMouse,yMouse;
 
         jPanel2.setBackground(new java.awt.Color(102, 255, 102));
         jPanel2.setForeground(new java.awt.Color(51, 255, 102));
-
-        btt_grafico.setBackground(new java.awt.Color(0, 0, 0));
-        btt_grafico.setFont(new java.awt.Font("Prodush", 0, 18)); // NOI18N
-        btt_grafico.setForeground(new java.awt.Color(255, 255, 255));
-        btt_grafico.setText("coneccion");
-        btt_grafico.setAutoscrolls(true);
-        btt_grafico.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btt_grafico.setDoubleBuffered(true);
-        btt_grafico.setFocusCycleRoot(true);
-        btt_grafico.setFocusPainted(false);
-        btt_grafico.setFocusable(false);
-        btt_grafico.setRolloverEnabled(true);
-        btt_grafico.setSelected(true);
-        btt_grafico.setVerifyInputWhenFocusTarget(false);
-        btt_grafico.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btt_graficoMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btt_graficoMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btt_graficoMouseExited(evt);
-            }
-        });
-        btt_grafico.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btt_graficoActionPerformed(evt);
-            }
-        });
 
         btt_analisis.setBackground(new java.awt.Color(0, 0, 0));
         btt_analisis.setFont(new java.awt.Font("Prodush", 0, 18)); // NOI18N
@@ -216,34 +133,84 @@ int xMouse,yMouse;
             }
         });
 
+        btn_Minimizar.setBackground(new java.awt.Color(255, 255, 255));
+        btn_Minimizar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btn_Minimizar.setForeground(new java.awt.Color(22, 22, 22));
+        btn_Minimizar.setText("—");
+        btn_Minimizar.setBorder(null);
+        btn_Minimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_Minimizar.setDefaultCapable(false);
+        btn_Minimizar.setFocusPainted(false);
+        btn_Minimizar.setFocusable(false);
+        btn_Minimizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_MinimizarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_MinimizarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_MinimizarMouseExited(evt);
+            }
+        });
+        btn_Minimizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_MinimizarActionPerformed(evt);
+            }
+        });
+
+        btn_Cerrar.setBackground(new java.awt.Color(255, 255, 255));
+        btn_Cerrar.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        btn_Cerrar.setForeground(new java.awt.Color(22, 22, 22));
+        btn_Cerrar.setText("X");
+        btn_Cerrar.setBorder(null);
+        btn_Cerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_Cerrar.setDefaultCapable(false);
+        btn_Cerrar.setFocusPainted(false);
+        btn_Cerrar.setFocusable(false);
+        btn_Cerrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_CerrarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_CerrarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_CerrarMouseExited(evt);
+            }
+        });
+        btn_Cerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_CerrarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btt_grafico, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btt_analisis, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btt_grafico1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap()))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btn_Minimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGap(39, 39, 39)
+                            .addComponent(btn_Cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btt_analisis, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 10, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(57, Short.MAX_VALUE)
-                .addComponent(btt_grafico, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_Minimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_Cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 163, Short.MAX_VALUE)
                 .addComponent(btt_analisis, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(237, 237, 237))
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                    .addContainerGap(288, Short.MAX_VALUE)
-                    .addComponent(btt_grafico1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(74, 74, 74)))
+                .addGap(41, 41, 41)
+                .addComponent(btt_grafico1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(78, 78, 78))
         );
 
         jLabel1.setBackground(new java.awt.Color(102, 102, 102));
@@ -266,14 +233,8 @@ int xMouse,yMouse;
                 .addGap(100, 100, 100)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(640, 640, 640)
-                .addComponent(btn_Minimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(540, 540, 540)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(679, 679, 679)
-                .addComponent(btn_Cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -287,11 +248,9 @@ int xMouse,yMouse;
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(btn_Minimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(btn_Cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
@@ -359,14 +318,6 @@ int xMouse,yMouse;
         yMouse=evt.getY();
     }//GEN-LAST:event_jPanel3MousePressed
 
-    private void btt_graficoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btt_graficoMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btt_graficoMouseClicked
-
-    private void btt_graficoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btt_graficoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btt_graficoActionPerformed
-
     private void btt_analisisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btt_analisisMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_btt_analisisMouseClicked
@@ -386,16 +337,6 @@ int xMouse,yMouse;
         // TODO add your handling code here:
         btt_analisis.setBackground(black);
     }//GEN-LAST:event_btt_analisisMouseExited
-
-    private void btt_graficoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btt_graficoMouseEntered
-        // TODO add your handling code here:
-        btt_grafico.setBackground(new java.awt.Color(98,98,98));
-    }//GEN-LAST:event_btt_graficoMouseEntered
-
-    private void btt_graficoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btt_graficoMouseExited
-        // TODO add your handling code here:
-        btt_grafico.setBackground(black);
-    }//GEN-LAST:event_btt_graficoMouseExited
 
     private void btt_grafico1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btt_grafico1MouseClicked
         // TODO add your handling code here:
@@ -452,7 +393,6 @@ int xMouse,yMouse;
     private javax.swing.JButton btn_Cerrar;
     private javax.swing.JButton btn_Minimizar;
     private javax.swing.JButton btt_analisis;
-    private javax.swing.JButton btt_grafico;
     private javax.swing.JButton btt_grafico1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
