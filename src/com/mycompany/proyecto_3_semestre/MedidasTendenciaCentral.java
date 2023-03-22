@@ -26,8 +26,10 @@ public class MedidasTendenciaCentral extends javax.swing.JFrame {
     static double media=0;
     static String media_aritmetica;
     static String mediana="";
+    // Datos de otra población
+    
     public void media(){
-    lista_media= ad.analisis();
+    lista_media = ad.analisis();
     for(int i=0;i<lista_media.size();i++){
     media = media+lista_media.get(i);
     }
@@ -57,7 +59,7 @@ public class MedidasTendenciaCentral extends javax.swing.JFrame {
      jLabel8.setText("El rango consedido es muy elevado, por lo cual se deben tomar medidas para cambiarlo ");
     }else{
       jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gifs/earth-day.gif")));
-      jLabel8.setText("El rengo consedido esta en los estandares");
+      jLabel8.setText("El rango consedido esta en los estandares");
     
     }
     }

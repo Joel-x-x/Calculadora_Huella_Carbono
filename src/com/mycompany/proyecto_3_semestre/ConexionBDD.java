@@ -105,10 +105,6 @@ public class ConexionBDD {
                 arrayRespuesta.add(myresultset.getString("respuesta"));
             }
 
-//           for (int i = 0; i < arrayRespuesta.size(); i++) {
-//                System.out.println(arrayRespuesta.get(i));
-//            }
-
         } catch (Exception e) {
             System.out.println("Opps!, No se puedo conectar a la base de datos");
             e.printStackTrace();

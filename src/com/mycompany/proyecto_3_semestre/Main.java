@@ -4,8 +4,6 @@
 
  package com.mycompany.proyecto_3_semestre;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author USER
