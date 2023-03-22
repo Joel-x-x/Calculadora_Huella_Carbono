@@ -14,8 +14,10 @@ public class Main {
         conexion.getConnection();
         conexion.encuestaID();
         conexion.respuesta();
-        JFrameIngresoDatos frm_principal = new JFrameIngresoDatos();
-        frm_principal.setVisible(true);
+        //JFrameIngresoDatos frm_principal = new JFrameIngresoDatos();
+        //frm_principal.setVisible(true);
+        login lg= new login();
+        lg.setVisible(true);
 
         AnalisisDatos datos = new AnalisisDatos();
 
