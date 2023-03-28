@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.proyecto_3_semestre;
+
 import java.awt.Color;
 import static java.awt.Color.red;
 import static java.awt.Color.white;
@@ -21,36 +22,37 @@ import javax.swing.JTextField;
  * @author Joel
  */
 public class Calculadora extends javax.swing.JFrame {
-static String fi,Fi,fr,Fr;
-    static int filas,columnas;
+
+    static String fi, Fi, fr, Fr;
+    static int filas, columnas;
     static ArrayList<Double> lista = new ArrayList<Double>();
     static ArrayList<Integer> lista_enteros = new ArrayList<Integer>();
     static ArrayList<Integer> lista_conteo = new ArrayList<>();
     static ArrayList<Double> lista_total = new ArrayList<Double>();
-    static ArrayList<Float> lista_relativa= new ArrayList<>();
-    static ArrayList<Integer> lista_aux= new ArrayList<>();
-    static ArrayList<Double> lista_rangos= new ArrayList<>();
-    static ArrayList<Integer> lista_frecuencias= new ArrayList<>();
+    static ArrayList<Float> lista_relativa = new ArrayList<>();
+    static ArrayList<Integer> lista_aux = new ArrayList<>();
+    static ArrayList<Double> lista_rangos = new ArrayList<>();
+    static ArrayList<Integer> lista_frecuencias = new ArrayList<>();
     static Scanner leer = new Scanner(System.in);
-    static String[][] tabla=null;
+    static String[][] tabla = null;
     static String[][] tabla_valores;
-    static int contador=1;
+    static int contador = 1;
     static int n_intervalos_valor;
-    static int   amplitud_intervalos_valor;
+    static int amplitud_intervalos_valor;
     static String op = "";
-    static String v="";
+    static String v = "";
     static String pregunta_1;
-static String pregunta_2;
-static String pregunta_3;
-static String pregunta_4;
-static String pregunta_5;
-static String pregunta_6;
-static String pregunta_7;
-static String pregunta_8;
-static String pregunta_9;
-static String pregunta_10;
-static String pregunta_11;
-static double suma_huella;
+    static String pregunta_2;
+    static String pregunta_3;
+    static String pregunta_4;
+    static String pregunta_5;
+    static String pregunta_6;
+    static String pregunta_7;
+    static String pregunta_8;
+    static String pregunta_9;
+    static String pregunta_10;
+    static String pregunta_11;
+    static double suma_huella;
     static AnalisisDatos datos_objeto = new AnalisisDatos();
     // Instanciamos la clase analisis datos
     AnalisisDatos datos = new AnalisisDatos();
@@ -64,27 +66,18 @@ static double suma_huella;
 
     // Declaración de la fuente para los campos de cada matriz
     Font font = new Font("Arial", Font.BOLD, 14);
-    
-    
-    
-    
-    
-    
 
     public Calculadora() {
         initComponents();
+        iniciar();
         // Ocultar los paneles de procesos al iniciar la calculadora
-        
+
         // Posicionar y dimensionar el JFrame
         //this.setBounds(0, 0, 1410, 729);
         //this.setLocationRelativeTo(null);
-
         // Agregar padding a los cuadros que ingresan los datos a la matriz
-        
-        
         // Generar Matriz A y B por defecto 2 x 2
         //generarMatA(5, 6);
-        
     }
     // Variables Matriz A Matriz B Matriz Reusltante C y Matrices Resultante númerador y denominador
     String a[][] = new String[fA][cA];
@@ -96,6 +89,35 @@ static double suma_huella;
     // Iteradores para Matriz A Matriz B
     int contadori = 0, contadorj = 0;
     int bcontadori = 0, bcontadorj = 0;
+
+    private void iniciar() {
+        ingreso();
+
+        //borrarMatrizB();
+        Collections.sort(lista);
+        Collections.sort(lista_total);
+        n_intervalos();
+        amplitud_intervalos();
+        tabla = Dimension_continua(tabla);
+        datos_tabla_contunuas(tabla);
+        //borrarMatrizA();
+        //matrizA[fA][cA].setVisible(false);
+        fA = tabla.length;
+
+        cA = 6;
+        //
+
+        generarMatA(fA, cA);
+        //matrizA[][]=new String()[(tabla[1].length)+4][6];
+        System.out.println();
+        imprimir_contunuas(tabla);
+        for (int i = 0; i < tabla.length; i++) {
+            for (int j = 0; j < 6; j++) {
+                matrizA[i][j].setText("");
+                matrizA[i][j].setText(tabla[i][j]);
+            }
+        }
+    }
 
     // Proceso para generar Matriz A
     public void generarMatA(int f, int c) {
@@ -134,8 +156,7 @@ static double suma_huella;
         setY = espaciadoY;
 
         matrizA = new JTextField[f][c];
-        
-        
+
         for (int i = 0; i < f; i++) {
             for (int j = 0; j < c; j++) {
                 matrizA[i][j] = new JTextField("");
@@ -173,8 +194,6 @@ static double suma_huella;
     }
 
     // Proceso para generar Matriz B
-   
-    
     // Borrar Matriz A
     public void borrarMatrizA() {
         for (int i = 0; i < fA; i++) {
@@ -183,15 +202,12 @@ static double suma_huella;
                 matrizA[i][j].setVisible(false);
             }
         }
-                contadori = 0;
+        contadori = 0;
         contadorj = 0;
     }
 
     // Borrar Matriz A
-
-
     // Extraer Datos matrizA
-
     // Extraer Datos matrizB
     public void extraerMatrizB() {
         // Resetear los arrays 
@@ -216,260 +232,250 @@ static double suma_huella;
     }
 
     // Validar campo para ingresar datos para matrizA
-
-
     // Validar campo b
-  
-
     // Validar matriz a
-
     // Validar matriz b
-
-    
-
     // Mostrar mensaje de error
-
-    public String [][] Dimension (String [][] Dimensionar_matriz){
-        Dimensionar_matriz=new String [lista_total.size()+7][5];
-        for(int i=0;i<Dimensionar_matriz.length;i++){
-            for(int j =0;j<Dimensionar_matriz[i].length;j++){
-                Dimensionar_matriz[i][j]="";
+    public String[][] Dimension(String[][] Dimensionar_matriz) {
+        Dimensionar_matriz = new String[lista_total.size() + 7][5];
+        for (int i = 0; i < Dimensionar_matriz.length; i++) {
+            for (int j = 0; j < Dimensionar_matriz[i].length; j++) {
+                Dimensionar_matriz[i][j] = "";
             }
         }
         return Dimensionar_matriz;
     }
-    public String [][] Dimension_continua (String [][] Dimensionar_matriz){
-        Dimensionar_matriz=new String [n_intervalos_valor+4][7];
-        for(int i=0;i<Dimensionar_matriz.length;i++){
-            for(int j =0;j<Dimensionar_matriz[i].length;j++){
-                Dimensionar_matriz[i][j]="";
+
+    public String[][] Dimension_continua(String[][] Dimensionar_matriz) {
+        Dimensionar_matriz = new String[n_intervalos_valor + 4][7];
+        for (int i = 0; i < Dimensionar_matriz.length; i++) {
+            for (int j = 0; j < Dimensionar_matriz[i].length; j++) {
+                Dimensionar_matriz[i][j] = "";
             }
         }
         return Dimensionar_matriz;
     }
     //Método para el ingreso de los datos correspondientes
 
-    public void ingreso(){
+    public void ingreso() {
         System.out.println("Ingrese la dimension de la matriz (filasxcolumnas)");
-        String n="";
-        n="5x14";
-        double a=0;
-        
+        String n = "";
+        n = "5x14";
+        double a = 0;
+
         System.out.println("Ingrese los valores ");
 
         String[] aux;
-        aux=n.split("x");
-        int sizeArray=0;
-        sizeArray=Integer.parseInt((aux[0]))*Integer.parseInt((aux[1]));
+        aux = n.split("x");
+        int sizeArray = 0;
+        sizeArray = Integer.parseInt((aux[0])) * Integer.parseInt((aux[1]));
 
-        filas=Integer.parseInt(aux[0]);
+        filas = Integer.parseInt(aux[0]);
         System.out.println(filas);
 
-
-        columnas=Integer.parseInt(aux[1]);
+        columnas = Integer.parseInt(aux[1]);
         System.out.println(columnas);
 
         tabla_valores = new String[filas][columnas];
         //System.out.println(tabla_valores.length+tabla_valores[0].length);
-        v="1";
-        
-        for(int i=0; i < sizeArray;i++){
+        v = "1";
+
+        for (int i = 0; i < sizeArray; i++) {
             a = datos.analisis().get(i);
             lista.add(Double.parseDouble(String.valueOf(a)));
             lista_total.add(Double.parseDouble(String.valueOf(a)));
-            if (op.equals("1")){
+            if (op.equals("1")) {
                 lista_enteros.add(Integer.parseInt(v));
             }
         }
-        int k=0;
-        for(int i=0;i<tabla_valores.length;i++){
-            for(int j=0;j<tabla_valores[i].length;j++){
-                tabla_valores[i][j]= String.valueOf(lista_total.get(k));
+        int k = 0;
+        for (int i = 0; i < tabla_valores.length; i++) {
+            for (int j = 0; j < tabla_valores[i].length; j++) {
+                tabla_valores[i][j] = String.valueOf(lista_total.get(k));
                 k++;
             }
         }
 
-
-
     }
-    public void datos_bdd (){
-    for(int i=0;i<75;i++){
-        for(int j=0;j<11;j++){
-            
+
+    public void datos_bdd() {
+        for (int i = 0; i < 75; i++) {
+            for (int j = 0; j < 11; j++) {
+
+            }
         }
     }
-    }
+
     //Método para el ingreso de los datos
-    public void datos_tabla(String [][] ingreso_tabla){
+    public void datos_tabla(String[][] ingreso_tabla) {
         //Declaración de los nombres o títulos de las tablas
-        int total_frecuencia=0;
-        int total=0;
-        ingreso_tabla[0][0]="Xi";
-        ingreso_tabla[0][1]="fi";
-        ingreso_tabla[0][2]="Fi";
-        ingreso_tabla[0][3]="fr";
-        ingreso_tabla[0][4]="Fr";
-        ingreso_tabla[lista_enteros.size()+2][0]="TOTAL";
+        int total_frecuencia = 0;
+        int total = 0;
+        ingreso_tabla[0][0] = "Xi";
+        ingreso_tabla[0][1] = "fi";
+        ingreso_tabla[0][2] = "Fi";
+        ingreso_tabla[0][3] = "fr";
+        ingreso_tabla[0][4] = "Fr";
+        ingreso_tabla[lista_enteros.size() + 2][0] = "TOTAL";
         //Ingreso de los datos correspondientes a la Marca de la clase.
 
-        for (int i=0;i<lista_enteros.size();i++){
-            ingreso_tabla[i+1][0]=String.valueOf(lista_enteros.get(i));
+        for (int i = 0; i < lista_enteros.size(); i++) {
+            ingreso_tabla[i + 1][0] = String.valueOf(lista_enteros.get(i));
         }
         //Ingreso de los datos correspondientes a la Frecuancia absoluta
-        for (int i=0;i<lista_conteo.size();i++){
-            ingreso_tabla[i+1][1]=String.valueOf(lista_conteo.get(i));
+        for (int i = 0; i < lista_conteo.size(); i++) {
+            ingreso_tabla[i + 1][1] = String.valueOf(lista_conteo.get(i));
         }
         //Cálculo del total de la frecuencia absoluta
-        for (int i=0;i<lista_conteo.size();i++){
-            total+=lista_conteo.get(i);
+        for (int i = 0; i < lista_conteo.size(); i++) {
+            total += lista_conteo.get(i);
         }
-        ingreso_tabla[lista_enteros.size()+2][1]=String.valueOf(total);
+        ingreso_tabla[lista_enteros.size() + 2][1] = String.valueOf(total);
         //Ingreso de los datos de la Frecuancia absoluta acumulada
-        ingreso_tabla[1][2]=String.valueOf(lista_conteo.get(0));
-        total_frecuencia=lista_conteo.get(0);
-        for (int i=2;i<lista_enteros.size()+1;i++){
-            total_frecuencia+=lista_conteo.get(i-1);
-            ingreso_tabla[i][2]=String.valueOf(total_frecuencia);
+        ingreso_tabla[1][2] = String.valueOf(lista_conteo.get(0));
+        total_frecuencia = lista_conteo.get(0);
+        for (int i = 2; i < lista_enteros.size() + 1; i++) {
+            total_frecuencia += lista_conteo.get(i - 1);
+            ingreso_tabla[i][2] = String.valueOf(total_frecuencia);
         }
         //Ingreso de los datos de la Frecuancia relativa
-        float relatividad=0;
-        for (int i=1;i<lista_enteros.size()+1;i++){
-            relatividad=lista_conteo.get(i-1);
-            relatividad=(relatividad)/total;
+        float relatividad = 0;
+        for (int i = 1; i < lista_enteros.size() + 1; i++) {
+            relatividad = lista_conteo.get(i - 1);
+            relatividad = (relatividad) / total;
             lista_relativa.add(relatividad);
-            ingreso_tabla[i][3]=String.format("%.2f",relatividad);
+            ingreso_tabla[i][3] = String.format("%.2f", relatividad);
         }
         //Ingreso de los datos de la Frecuancia acumulada
-        float total_frecuencia_relaitva=0;
-        for (int i=0;i<lista_relativa.size();i++){
-            total_frecuencia_relaitva+=lista_relativa.get(i);
+        float total_frecuencia_relaitva = 0;
+        for (int i = 0; i < lista_relativa.size(); i++) {
+            total_frecuencia_relaitva += lista_relativa.get(i);
         }
 
-        ingreso_tabla[lista_enteros.size()+2][3]=String.format("%.2f",total_frecuencia_relaitva);
-        ingreso_tabla[1][4]=String.format("%.2f",lista_relativa.get(0));
-        float total_relitivo=0;
-        total_relitivo=lista_relativa.get(0);
-        for (int i=2;i<lista_enteros.size()+1;i++){
-            total_relitivo+=lista_relativa.get(i-1);
-            ingreso_tabla[i][4]=String.format("%.2f",total_relitivo);
+        ingreso_tabla[lista_enteros.size() + 2][3] = String.format("%.2f", total_frecuencia_relaitva);
+        ingreso_tabla[1][4] = String.format("%.2f", lista_relativa.get(0));
+        float total_relitivo = 0;
+        total_relitivo = lista_relativa.get(0);
+        for (int i = 2; i < lista_enteros.size() + 1; i++) {
+            total_relitivo += lista_relativa.get(i - 1);
+            ingreso_tabla[i][4] = String.format("%.2f", total_relitivo);
         }
     }
 
-    public static void datos_tabla_contunuas(String [][] ingreso_tabla){
+    public static void datos_tabla_contunuas(String[][] ingreso_tabla) {
         //Declaración de los nombres o títulos de las tablas
 
-        int total_frecuencia=0;
-        int total=0;
-        ingreso_tabla[0][0]="Li";
-        ingreso_tabla[0][1]="LS";
-        ingreso_tabla[0][2]="fi";
-        ingreso_tabla[0][3]="Fi";
-        ingreso_tabla[0][4]="fr";
-        ingreso_tabla[0][5]="Fr";
+        int total_frecuencia = 0;
+        int total = 0;
+        ingreso_tabla[0][0] = "Li";
+        ingreso_tabla[0][1] = "LS";
+        ingreso_tabla[0][2] = "fi";
+        ingreso_tabla[0][3] = "Fi";
+        ingreso_tabla[0][4] = "fr";
+        ingreso_tabla[0][5] = "Fr";
 
-        ingreso_tabla[n_intervalos_valor+3][0]="TOTAL";
+        ingreso_tabla[n_intervalos_valor + 3][0] = "TOTAL";
 
-        double rangos_aux=0;
-        rangos_aux=Double.parseDouble(String.valueOf(lista_total.get(0)+amplitud_intervalos_valor));
-        ingreso_tabla[1][0]=String.valueOf(lista_total.get(0));
+        double rangos_aux = 0;
+        rangos_aux = Double.parseDouble(String.valueOf(lista_total.get(0) + amplitud_intervalos_valor));
+        ingreso_tabla[1][0] = String.valueOf(lista_total.get(0));
         lista_rangos.add(lista_total.get(0));
-        ingreso_tabla[1][1]=String.valueOf(lista_total.get(0)+amplitud_intervalos_valor);
+        ingreso_tabla[1][1] = String.valueOf(lista_total.get(0) + amplitud_intervalos_valor);
 
-        for (int i=1;i<n_intervalos_valor;i++){
-            ingreso_tabla[i+1][0]=" "+(rangos_aux);
+        for (int i = 1; i < n_intervalos_valor; i++) {
+            ingreso_tabla[i + 1][0] = " " + (rangos_aux);
             lista_rangos.add(rangos_aux);
-            rangos_aux=rangos_aux+amplitud_intervalos_valor;
+            rangos_aux = rangos_aux + amplitud_intervalos_valor;
             lista_rangos.add(rangos_aux);
-            ingreso_tabla[i+1][1]=(rangos_aux)+" ";
+            ingreso_tabla[i + 1][1] = (rangos_aux) + " ";
         }
         frecuencias();
-        for (int i=0;i<n_intervalos_valor;i++){
+        for (int i = 0; i < n_intervalos_valor; i++) {
 
-
-            ingreso_tabla[i+1][2]=String.valueOf(lista_frecuencias.get(i));
+            ingreso_tabla[i + 1][2] = String.valueOf(lista_frecuencias.get(i));
 
         }
         //Cálculo del total de la frecuencia absoluta
-        for (int i=0;i<n_intervalos_valor;i++){
-            total=total+lista_frecuencias.get(i);
+        for (int i = 0; i < n_intervalos_valor; i++) {
+            total = total + lista_frecuencias.get(i);
         }
-        ingreso_tabla[n_intervalos_valor+3][2]=String.valueOf(total);
-        ingreso_tabla[1][3]=String.valueOf(lista_frecuencias.get(0));
-        total_frecuencia=lista_frecuencias.get(0);
-        for (int i=1;i<n_intervalos_valor;i++){
-            total_frecuencia+=lista_frecuencias.get(i);
-            ingreso_tabla[i+1][3]=String.valueOf(total_frecuencia);
+        ingreso_tabla[n_intervalos_valor + 3][2] = String.valueOf(total);
+        ingreso_tabla[1][3] = String.valueOf(lista_frecuencias.get(0));
+        total_frecuencia = lista_frecuencias.get(0);
+        for (int i = 1; i < n_intervalos_valor; i++) {
+            total_frecuencia += lista_frecuencias.get(i);
+            ingreso_tabla[i + 1][3] = String.valueOf(total_frecuencia);
         }
-        float relatividad=0;
-        for (int i=0;i<n_intervalos_valor;i++){
-            relatividad=lista_frecuencias.get(i);
-            relatividad=(relatividad)/total;
+        float relatividad = 0;
+        for (int i = 0; i < n_intervalos_valor; i++) {
+            relatividad = lista_frecuencias.get(i);
+            relatividad = (relatividad) / total;
             lista_relativa.add(relatividad);
-            ingreso_tabla[i+1][4]=String.format("%.2f",relatividad);
-
+            ingreso_tabla[i + 1][4] = String.format("%.2f", relatividad);
 
         }
         //Ingreso de los datos de la Frecuancia acumulada
-        float total_frecuencia_relaitva=0;
-        for (int i=0;i<n_intervalos_valor;i++){
-            total_frecuencia_relaitva+=lista_relativa.get(i);
+        float total_frecuencia_relaitva = 0;
+        for (int i = 0; i < n_intervalos_valor; i++) {
+            total_frecuencia_relaitva += lista_relativa.get(i);
         }
-        ingreso_tabla[n_intervalos_valor+3][4]=String.format("%.2f",total_frecuencia_relaitva);
-        ingreso_tabla[n_intervalos_valor+3][1]="     ";
-        ingreso_tabla[n_intervalos_valor+3][3]="     ";
-        ingreso_tabla[1][5]=String.format("%.2f",lista_relativa.get(0));
-        float total_relitivo=0;
-        total_relitivo=lista_relativa.get(0);
-        for (int i=2;i<n_intervalos_valor+1;i++){
-            total_relitivo+=lista_relativa.get(i-1);
-            ingreso_tabla[i][5]=String.format("%.2f",total_relitivo);
+        ingreso_tabla[n_intervalos_valor + 3][4] = String.format("%.2f", total_frecuencia_relaitva);
+        ingreso_tabla[n_intervalos_valor + 3][1] = "     ";
+        ingreso_tabla[n_intervalos_valor + 3][3] = "     ";
+        ingreso_tabla[1][5] = String.format("%.2f", lista_relativa.get(0));
+        float total_relitivo = 0;
+        total_relitivo = lista_relativa.get(0);
+        for (int i = 2; i < n_intervalos_valor + 1; i++) {
+            total_relitivo += lista_relativa.get(i - 1);
+            ingreso_tabla[i][5] = String.format("%.2f", total_relitivo);
         }
     }
-    public static void frecuencias(){
-        int frecuencias_contador=0;
-        double y=0;
-        double k_y;
-        y=lista_rangos.get(0);
-        k_y=y+amplitud_intervalos_valor;
-        for(int i=0;i<n_intervalos_valor;i++){
-            for (int j=0;j<lista_total.size();j++){
-                if ((lista_total.get(j)>=y && (lista_total.get(j)<k_y))){
-                    frecuencias_contador+=1;
-                }else {
 
-                    if (i==(n_intervalos_valor-1)){
-                        if ((lista_total.get(j)>=y && (lista_total.get(j)<=k_y))){
-                            frecuencias_contador+=1;
+    public static void frecuencias() {
+        int frecuencias_contador = 0;
+        double y = 0;
+        double k_y;
+        y = lista_rangos.get(0);
+        k_y = y + amplitud_intervalos_valor;
+        for (int i = 0; i < n_intervalos_valor; i++) {
+            for (int j = 0; j < lista_total.size(); j++) {
+                if ((lista_total.get(j) >= y && (lista_total.get(j) < k_y))) {
+                    frecuencias_contador += 1;
+                } else {
+
+                    if (i == (n_intervalos_valor - 1)) {
+                        if ((lista_total.get(j) >= y && (lista_total.get(j) <= k_y))) {
+                            frecuencias_contador += 1;
                         }
                     }
                 }
             }
-            y=k_y;
-            k_y=k_y+amplitud_intervalos_valor;
+            y = k_y;
+            k_y = k_y + amplitud_intervalos_valor;
 
             lista_frecuencias.add(frecuencias_contador);
-            frecuencias_contador=0;
+            frecuencias_contador = 0;
         }
 
         datos();
     }
 
     //Método para la impresión de la matriz
-    public void imprimir_contunuas(String [][] matriz_impresion){
-        for(int i=0;i< tabla_valores.length;i++){
-            for (int j=0;j<tabla_valores[i].length;j++){
-                System.out.print("|"+tabla_valores[i][j]+"|");
+    public void imprimir_contunuas(String[][] matriz_impresion) {
+        for (int i = 0; i < tabla_valores.length; i++) {
+            for (int j = 0; j < tabla_valores[i].length; j++) {
+                System.out.print("|" + tabla_valores[i][j] + "|");
             }
             System.out.println();
         }
-        for(int i=0;i< matriz_impresion.length;i++){
-            for (int j=0;j<matriz_impresion[i].length;j++){
-                if (matriz_impresion[i][j].equals("")){
+        for (int i = 0; i < matriz_impresion.length; i++) {
+            for (int j = 0; j < matriz_impresion[i].length; j++) {
+                if (matriz_impresion[i][j].equals("")) {
 
-                }else {
-                    if(matriz_impresion[i][j].equals("     ")){
+                } else {
+                    if (matriz_impresion[i][j].equals("     ")) {
                         System.out.print("" + matriz_impresion[i][j] + "                ");
-                    }else {
+                    } else {
 
                         System.out.print("|" + matriz_impresion[i][j] + "|                ");
                     }
@@ -478,18 +484,19 @@ static double suma_huella;
             System.out.println();
         }
     }
-    public void imprimir(String [][] matriz_impresion){
-        for(int i=0;i< tabla_valores.length;i++){
-            for (int j=0;j<tabla_valores[i].length;j++){
-                System.out.print("|"+tabla_valores[i][j]+"|");
+
+    public void imprimir(String[][] matriz_impresion) {
+        for (int i = 0; i < tabla_valores.length; i++) {
+            for (int j = 0; j < tabla_valores[i].length; j++) {
+                System.out.print("|" + tabla_valores[i][j] + "|");
             }
             System.out.println();
         }
-        for(int i=0;i< matriz_impresion.length;i++){
-            for (int j=0;j<matriz_impresion[i].length;j++){
-                if (matriz_impresion[i][j].equals("")){
+        for (int i = 0; i < matriz_impresion.length; i++) {
+            for (int j = 0; j < matriz_impresion[i].length; j++) {
+                if (matriz_impresion[i][j].equals("")) {
 
-                }else {
+                } else {
                     System.out.print("|" + matriz_impresion[i][j] + "|                ");
                 }
             }
@@ -498,26 +505,26 @@ static double suma_huella;
     }
 
     //Cálculo del número de repeticiones que realiza cada valor.
-    public void repeticiones(){
-        int c=0;
-        int k,top=0;
+    public void repeticiones() {
+        int c = 0;
+        int k, top = 0;
         boolean contado;
-        for(int i =0;i<lista_enteros.size();i++){
-            c=1;
-            contado=false;
-            k=0;
-            while((!contado)&&(k<top)){
-                if(lista_enteros.get(i)==lista_aux.get(k)){
-                    contado=true;
+        for (int i = 0; i < lista_enteros.size(); i++) {
+            c = 1;
+            contado = false;
+            k = 0;
+            while ((!contado) && (k < top)) {
+                if (lista_enteros.get(i) == lista_aux.get(k)) {
+                    contado = true;
                 }
                 k++;
             }
-            if(!contado){
+            if (!contado) {
                 lista_aux.add(lista_enteros.get(i));
                 top++;
-                for (int j=0;j<lista_enteros.size();j++){
-                    if(j!=i){
-                        if(lista_enteros.get(i)==lista_enteros.get(j)){
+                for (int j = 0; j < lista_enteros.size(); j++) {
+                    if (j != i) {
+                        if (lista_enteros.get(i) == lista_enteros.get(j)) {
                             c++;
                         }
                     }
@@ -533,49 +540,50 @@ static double suma_huella;
         lista_enteros.clear();
         lista_enteros.addAll(hashSet);
     }
-    public void n_intervalos(){
-        double intervalos= sqrt(lista_total.size());
+
+    public void n_intervalos() {
+        double intervalos = sqrt(lista_total.size());
         String[] h;
 
         System.out.println(intervalos);
         String j;
-        j=String.valueOf(intervalos);
-        j=j.replace(".","/");
+        j = String.valueOf(intervalos);
+        j = j.replace(".", "/");
         System.out.println(j);
 
-        h=j.split("/");
+        h = j.split("/");
         System.out.println(h[0]);
 
-        n_intervalos_valor=Integer.parseInt(h[0]);
-        System.out.println("el intervalo es de "+n_intervalos_valor);
+        n_intervalos_valor = Integer.parseInt(h[0]);
+        System.out.println("el intervalo es de " + n_intervalos_valor);
 
     }
-    public void amplitud_intervalos(){
-        double amplitud= ((lista_total.get(lista_total.size()-1))-lista_total.get(0))/n_intervalos_valor;
-        String y="";
+
+    public void amplitud_intervalos() {
+        double amplitud = ((lista_total.get(lista_total.size() - 1)) - lista_total.get(0)) / n_intervalos_valor;
+        String y = "";
         System.out.println(amplitud);
-        y=String.format("%.1f",amplitud);
+        y = String.format("%.1f", amplitud);
         System.out.println(y);
-        y=y.replace(",",".");
-        amplitud=Double.parseDouble(y);
+        y = y.replace(",", ".");
+        amplitud = Double.parseDouble(y);
         String[] h;
-        y=y.replace(".","/");
-        h=String.valueOf(y).split("/");
-        if(Integer.parseInt(h[1])>=5){
-            h[0]=String.valueOf(Integer.parseInt(h[0])+1);
+        y = y.replace(".", "/");
+        h = String.valueOf(y).split("/");
+        if (Integer.parseInt(h[1]) >= 5) {
+            h[0] = String.valueOf(Integer.parseInt(h[0]) + 1);
         }
-        if (Integer.parseInt(h[0])==0){
-            h[0]=String.valueOf(Integer.parseInt(h[0])+1);
+        if (Integer.parseInt(h[0]) == 0) {
+            h[0] = String.valueOf(Integer.parseInt(h[0]) + 1);
         }
-        amplitud_intervalos_valor=Integer.parseInt(h[0]);
+        amplitud_intervalos_valor = Integer.parseInt(h[0]);
 
-        System.out.println("la amplitud es de "+amplitud_intervalos_valor);
+        System.out.println("la amplitud es de " + amplitud_intervalos_valor);
     }
-    
+
     public static ArrayList<Integer> datos() {
         return lista_frecuencias;
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -588,15 +596,12 @@ static double suma_huella;
 
         n4 = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jpanelma = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jpanelma = new javax.swing.JPanel();
         panelsuperior = new javax.swing.JPanel();
-        btt_calcular = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         btn_Minimizar = new javax.swing.JButton();
         btn_Cerrar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
 
         n4.setBackground(new java.awt.Color(102, 102, 102));
         n4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -615,7 +620,13 @@ static double suma_huella;
         jPanel5.setBackground(new java.awt.Color(0, 0, 0));
         jPanel5.setPreferredSize(new java.awt.Dimension(500, 300));
 
-        jPanel2.setBackground(new java.awt.Color(51, 51, 51));
+        jButton1.setText("medidas de tendencia ");
+        jButton1.setBorder(null);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jpanelma.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -623,25 +634,12 @@ static double suma_huella;
         jpanelma.setLayout(jpanelmaLayout);
         jpanelmaLayout.setHorizontalGroup(
             jpanelmaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 390, Short.MAX_VALUE)
+            .addGap(0, 310, Short.MAX_VALUE)
         );
         jpanelmaLayout.setVerticalGroup(
             jpanelmaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 460, Short.MAX_VALUE)
+            .addGap(0, 390, Short.MAX_VALUE)
         );
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpanelma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpanelma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-
-        jpanelma.getAccessibleContext().setAccessibleName("");
 
         panelsuperior.setBackground(new java.awt.Color(102, 102, 102));
         panelsuperior.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -655,17 +653,8 @@ static double suma_huella;
                 panelsuperiorMousePressed(evt);
             }
         });
+        panelsuperior.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btt_calcular.setText("CALCULAR");
-        btt_calcular.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btt_calcularActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gifs/arbol.gif"))); // NOI18N
-
-        btn_Minimizar.setBackground(new java.awt.Color(255, 255, 255));
         btn_Minimizar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         btn_Minimizar.setForeground(new java.awt.Color(22, 22, 22));
         btn_Minimizar.setText("—");
@@ -691,7 +680,6 @@ static double suma_huella;
             }
         });
 
-        btn_Cerrar.setBackground(new java.awt.Color(255, 255, 255));
         btn_Cerrar.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         btn_Cerrar.setForeground(new java.awt.Color(22, 22, 22));
         btn_Cerrar.setText("X");
@@ -717,76 +705,60 @@ static double suma_huella;
             }
         });
 
-        jButton1.setText("medidas de tendencia ");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelsuperior, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(1181, 1181, 1181)
+                        .addGap(1272, 1272, 1272)
                         .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btt_calcular)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(jPanel5Layout.createSequentialGroup()
-                            .addGap(65, 65, 65)
-                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btn_Minimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel5Layout.createSequentialGroup()
-                                    .addGap(39, 39, 39)
-                                    .addComponent(btn_Cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(212, 212, 212)
+                        .addComponent(jpanelma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(301, 301, 301)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(panelsuperior, javax.swing.GroupLayout.PREFERRED_SIZE, 604, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(39, 39, 39)
+                                .addComponent(btn_Cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btn_Minimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(481, 481, 481))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(panelsuperior, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_Minimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_Cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addComponent(btt_calcular)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(141, 141, 141)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(40, 40, 40)
+                    .addComponent(btn_Cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_Minimizar)
+                    .addComponent(panelsuperior, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addComponent(jpanelma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70)
                 .addComponent(jLabel20)
-                .addGap(43, 43, 43)
-                .addComponent(jButton1)
-                .addContainerGap())
+                .addContainerGap(49, Short.MAX_VALUE))
         );
+
+        jpanelma.getAccessibleContext().setAccessibleName("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 770, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 703, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 647, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -807,35 +779,11 @@ static double suma_huella;
         mouseY = evt.getY();
     }//GEN-LAST:event_panelsuperiorMousePressed
 
-    private void btt_calcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btt_calcularActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        ingreso();
-        
-            //borrarMatrizB();
-            
-                    Collections.sort(lista);
-                    Collections.sort(lista_total);
-                    n_intervalos();
-                    amplitud_intervalos();
-                    tabla=Dimension_continua(tabla);
-                    datos_tabla_contunuas(tabla);
-                    //borrarMatrizA();
-                    //matrizA[fA][cA].setVisible(false);
-                    fA=tabla.length;
-                    
-            cA=6;
-            //
-            
-            generarMatA(fA, cA);
-            //matrizA[][]=new String()[(tabla[1].length)+4][6];
-                    System.out.println();
-                    imprimir_contunuas(tabla);
-                    for(int i=0;i<tabla.length;i++){
-                    for(int j=0;j<6;j++){
-                        matrizA[i][j].setText("");
-                        matrizA[i][j].setText(tabla[i][j]);
-                    }}
-    }//GEN-LAST:event_btt_calcularActionPerformed
+        MedidasTendenciaCentral mt = new MedidasTendenciaCentral();
+        mt.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btn_MinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_MinimizarMouseClicked
         // TODO add your handling code here:
@@ -844,7 +792,7 @@ static double suma_huella;
 
     private void btn_MinimizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_MinimizarMouseEntered
         // TODO add your handling code here:
-        btn_Minimizar.setBackground(new java.awt.Color(98,98,98));
+        btn_Minimizar.setBackground(new java.awt.Color(98, 98, 98));
     }//GEN-LAST:event_btn_MinimizarMouseEntered
 
     private void btn_MinimizarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_MinimizarMouseExited
@@ -874,12 +822,6 @@ static double suma_huella;
     private void btn_CerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CerrarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_CerrarActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        MedidasTendenciaCentral mt = new MedidasTendenciaCentral();
-        mt.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -916,17 +858,14 @@ static double suma_huella;
                 new Calculadora().setVisible(true);
             }
         });
-        
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Cerrar;
     private javax.swing.JButton btn_Minimizar;
-    private javax.swing.JButton btt_calcular;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jpanelma;
     private javax.swing.JTextField n4;
