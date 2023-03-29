@@ -5,6 +5,7 @@
 package com.mycompany.proyecto_3_semestre;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import static java.awt.Color.red;
 import static java.awt.Color.white;
 import java.awt.Dimension;
@@ -29,7 +30,7 @@ public class Histograma extends javax.swing.JFrame {
     public Histograma() {
         initComponents();
         iniciar();
-
+        this.setLocationRelativeTo(null);
     }
     int xMouse, yMouse;
 
@@ -89,13 +90,15 @@ public class Histograma extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btn_Minimizar = new javax.swing.JButton();
         btn_Cerrar = new javax.swing.JButton();
+        btn_Minimizar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
         setLocationByPlatform(true);
         setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -108,35 +111,14 @@ public class Histograma extends javax.swing.JFrame {
             .addGap(0, 284, Short.MAX_VALUE)
         );
 
-        btn_Minimizar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        btn_Minimizar.setForeground(new java.awt.Color(22, 22, 22));
-        btn_Minimizar.setText("—");
-        btn_Minimizar.setBorder(null);
-        btn_Minimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_Minimizar.setDefaultCapable(false);
-        btn_Minimizar.setFocusPainted(false);
-        btn_Minimizar.setFocusable(false);
-        btn_Minimizar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_MinimizarMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btn_MinimizarMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btn_MinimizarMouseExited(evt);
-            }
-        });
-        btn_Minimizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_MinimizarActionPerformed(evt);
-            }
-        });
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
 
         btn_Cerrar.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         btn_Cerrar.setForeground(new java.awt.Color(22, 22, 22));
         btn_Cerrar.setText("X");
         btn_Cerrar.setBorder(null);
+        btn_Cerrar.setBorderPainted(false);
+        btn_Cerrar.setContentAreaFilled(false);
         btn_Cerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_Cerrar.setDefaultCapable(false);
         btn_Cerrar.setFocusPainted(false);
@@ -157,8 +139,38 @@ public class Histograma extends javax.swing.JFrame {
                 btn_CerrarActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_Cerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 0, 40, 30));
+
+        btn_Minimizar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btn_Minimizar.setForeground(new java.awt.Color(22, 22, 22));
+        btn_Minimizar.setText("—");
+        btn_Minimizar.setBorder(null);
+        btn_Minimizar.setBorderPainted(false);
+        btn_Minimizar.setContentAreaFilled(false);
+        btn_Minimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_Minimizar.setDefaultCapable(false);
+        btn_Minimizar.setFocusPainted(false);
+        btn_Minimizar.setFocusable(false);
+        btn_Minimizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_MinimizarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_MinimizarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_MinimizarMouseExited(evt);
+            }
+        });
+        btn_Minimizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_MinimizarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_Minimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 0, 40, 30));
 
         jPanel3.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 jPanel3MouseDragged(evt);
@@ -174,67 +186,21 @@ public class Histograma extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
+            .addGap(0, 760, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 10, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_Minimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_Cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_Cerrar)
-                    .addComponent(btn_Minimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(72, 72, 72)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_MinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_MinimizarMouseClicked
-        // TODO add your handling code here:
-        this.setExtendedState(1);
-
-    }//GEN-LAST:event_btn_MinimizarMouseClicked
-
-    private void btn_MinimizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_MinimizarMouseEntered
-        // TODO add your handling code here:
-        btn_Minimizar.setBackground(new java.awt.Color(98, 98, 98));
-    }//GEN-LAST:event_btn_MinimizarMouseEntered
-
-    private void btn_MinimizarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_MinimizarMouseExited
-        // TODO add your handling code here:
-        btn_Minimizar.setBackground(white);
-    }//GEN-LAST:event_btn_MinimizarMouseExited
-
-    private void btn_MinimizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_MinimizarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_MinimizarActionPerformed
-
     private void btn_CerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CerrarMouseClicked
         // TODO add your handling code here:
-        this.setVisible(false);
-
+        System.exit(0);
     }//GEN-LAST:event_btn_CerrarMouseClicked
 
     private void btn_CerrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CerrarMouseEntered
@@ -251,16 +217,35 @@ public class Histograma extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_CerrarActionPerformed
 
+    private void btn_MinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_MinimizarMouseClicked
+        // TODO add your handling code here:
+        this.setExtendedState(1);
+    }//GEN-LAST:event_btn_MinimizarMouseClicked
+
+    private void btn_MinimizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_MinimizarMouseEntered
+        // TODO add your handling code here:
+        btn_Minimizar.setBackground(new java.awt.Color(98,98,98));
+    }//GEN-LAST:event_btn_MinimizarMouseEntered
+
+    private void btn_MinimizarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_MinimizarMouseExited
+        // TODO add your handling code here:
+        btn_Minimizar.setBackground(Color.white);
+    }//GEN-LAST:event_btn_MinimizarMouseExited
+
+    private void btn_MinimizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_MinimizarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_MinimizarActionPerformed
+
     private void jPanel3MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseDragged
         // TODO add your handling code here:
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
-        this.setLocation(x - xMouse, y - yMouse);
+        this.setLocation(x-xMouse, y-yMouse);
     }//GEN-LAST:event_jPanel3MouseDragged
 
     private void jPanel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MousePressed
-        xMouse = evt.getX();
-        yMouse = evt.getY();
+        xMouse= evt.getX();
+        yMouse=evt.getY();
     }//GEN-LAST:event_jPanel3MousePressed
 
     /**

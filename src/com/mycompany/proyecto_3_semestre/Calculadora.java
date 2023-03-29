@@ -70,6 +70,7 @@ public class Calculadora extends javax.swing.JFrame {
     public Calculadora() {
         initComponents();
         iniciar();
+        this.setLocationRelativeTo(null);
         // Ocultar los paneles de procesos al iniciar la calculadora
 
         // Posicionar y dimensionar el JFrame
@@ -619,14 +620,20 @@ public class Calculadora extends javax.swing.JFrame {
 
         jPanel5.setBackground(new java.awt.Color(0, 0, 0));
         jPanel5.setPreferredSize(new java.awt.Dimension(500, 300));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel5.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(1272, 598, 48, -1));
 
-        jButton1.setText("medidas de tendencia ");
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton1.setText("Medidas de Tendencia");
         jButton1.setBorder(null);
+        jButton1.setBorderPainted(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel5.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 500, 180, 25));
 
         jpanelma.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -641,6 +648,9 @@ public class Calculadora extends javax.swing.JFrame {
             .addGap(0, 390, Short.MAX_VALUE)
         );
 
+        jPanel5.add(jpanelma, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 69, -1, -1));
+        jpanelma.getAccessibleContext().setAccessibleName("");
+
         panelsuperior.setBackground(new java.awt.Color(102, 102, 102));
         panelsuperior.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelsuperior.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -654,11 +664,14 @@ public class Calculadora extends javax.swing.JFrame {
             }
         });
         panelsuperior.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel5.add(panelsuperior, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 13));
 
         btn_Minimizar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        btn_Minimizar.setForeground(new java.awt.Color(22, 22, 22));
+        btn_Minimizar.setForeground(new java.awt.Color(255, 255, 255));
         btn_Minimizar.setText("—");
         btn_Minimizar.setBorder(null);
+        btn_Minimizar.setBorderPainted(false);
+        btn_Minimizar.setContentAreaFilled(false);
         btn_Minimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_Minimizar.setDefaultCapable(false);
         btn_Minimizar.setFocusPainted(false);
@@ -679,11 +692,14 @@ public class Calculadora extends javax.swing.JFrame {
                 btn_MinimizarActionPerformed(evt);
             }
         });
+        jPanel5.add(btn_Minimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 0, 40, -1));
 
         btn_Cerrar.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
-        btn_Cerrar.setForeground(new java.awt.Color(22, 22, 22));
+        btn_Cerrar.setForeground(new java.awt.Color(255, 255, 255));
         btn_Cerrar.setText("X");
         btn_Cerrar.setBorder(null);
+        btn_Cerrar.setBorderPainted(false);
+        btn_Cerrar.setContentAreaFilled(false);
         btn_Cerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_Cerrar.setDefaultCapable(false);
         btn_Cerrar.setFocusPainted(false);
@@ -704,49 +720,7 @@ public class Calculadora extends javax.swing.JFrame {
                 btn_CerrarActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(1272, 1272, 1272)
-                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(212, 212, 212)
-                        .addComponent(jpanelma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(301, 301, 301)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(panelsuperior, javax.swing.GroupLayout.PREFERRED_SIZE, 604, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGap(39, 39, 39)
-                                .addComponent(btn_Cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btn_Minimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_Cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_Minimizar)
-                    .addComponent(panelsuperior, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
-                .addComponent(jpanelma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70)
-                .addComponent(jLabel20)
-                .addContainerGap(49, Short.MAX_VALUE))
-        );
-
-        jpanelma.getAccessibleContext().setAccessibleName("");
+        jPanel5.add(btn_Cerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 0, 40, 22));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -756,9 +730,9 @@ public class Calculadora extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 647, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 619, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
